@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -148,11 +148,11 @@
                 document.getElementById('cta-button').textContent = texts[lang].ctaButton;
                 document.getElementById('cta-button').href = texts[lang].downloadLink;
             } else {
-                // Если язык не поддерживается, загружаем русский
-                document.getElementById('heading').textContent = texts['ru'].heading;
-                document.getElementById('sub-heading').textContent = texts['ru'].subHeading;
-                document.getElementById('cta-button').textContent = texts['ru'].ctaButton;
-                document.getElementById('cta-button').href = texts['ru'].downloadLink;
+                // Если язык не поддерживается, загружаем английский
+                document.getElementById('heading').textContent = texts['en'].heading;
+                document.getElementById('sub-heading').textContent = texts['en'].subHeading;
+                document.getElementById('cta-button').textContent = texts['en'].ctaButton;
+                document.getElementById('cta-button').href = texts['en'].downloadLink;
             }
         }
 
