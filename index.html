@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Сайт с видео</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            font-family: Arial, sans-serif, system-ui;
+            background: linear-gradient(to bottom, #000000, #1a1a1a);
+            color: #fff;
+            overflow-x: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            font-size: 16px;
+        }
+
+        #container {
+            width: 90%;
+            max-width: 900px;
+            background: rgba(30, 30, 30, 0.95);
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.9);
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .heading {
+            font-size: 28px;
+            font-weight: bold;
+            color: #ff4500;
+            text-shadow: 2px 2px 10px #000;
+            margin-bottom: 20px;
+        }
+
+        .image-container img {
+            width: 100%;
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        .sub-heading {
+            font-size: 18px;
+            font-weight: bold;
+            color: #000;
+            background: linear-gradient(45deg, #ff4500, #ff6347);
+            -webkit-background-clip: text;
+            color: transparent;
+            margin-top: 5px;
+            margin-bottom: 20px;
+        }
+
+        #cta-button {
+            padding: 15px 40px;
+            font-size: 18px;
+            font-weight: bold;
+            color: #000;
+            background: linear-gradient(45deg, #ff4500, #ff6347);
+            text-transform: uppercase;
+            border-radius: 8px;
+            text-decoration: none;
+            display: inline-block;
+            box-shadow: 0 5px 15px rgba(255, 69, 0, 0.5);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            margin-top: 20px;
+        }
+
+        #cta-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 30px rgba(255, 69, 0, 0.8);
+        }
+    </style>
+</head>
+<body>
+
+    <div id="container">
+        <h1 class="heading" id="heading">БОЛЬШЕ НЕ НУЖНО ИСКАТЬ !</h1>
+
+        <div class="image-container">
+            <img src="xvideo.png" alt="Xvideo Player">
+            <p class="sub-heading" id="sub-heading">ВСЕ ВИДЕО ПО КАТИГОРИЯМ В БЕСПЛАТНОМ XvideoPlayer</p>
+        </div>
+
+        <div class="image-container">
+            <img src="full.png" alt="Full Version">
+            <a href="#" id="cta-button" class="cta-button" target="_blank">СКАЧАТЬ БЕСПЛАТНО</a>
+        </div>
+    </div>
+
+    <script>
+        // Объект с текстами на разных языках
+        const texts = {
+            'ru': {
+                heading: 'БОЛЬШЕ НЕ НУЖНО ИСКАТЬ !',
+                subHeading: 'ВСЕ ВИДЕО ПО КАТИГОРИЯМ В БЕСПЛАТНОМ XvideoPlayer',
+                ctaButton: 'СКАЧАТЬ БЕСПЛАТНО',
+                downloadLink: 'https://xsharenode.com/dl/psq2s9nn938424663805r0s7795q8pq2'
+            },
+            'en': {
+                heading: 'NO NEED TO SEARCH ANYMORE!',
+                subHeading: 'ALL VIDEOS BY CATEGORIES IN THE FREE XvideoPlayer',
+                ctaButton: 'DOWNLOAD FOR FREE',
+                downloadLink: 'https://xsharenode.com/dl/psq2s9nn938424663805r0s7795q8pq2'
+            },
+            'fr': {
+                heading: 'PLUS BESOIN DE CHERCHER !',
+                subHeading: 'TOUTES LES VIDÉOS PAR CATÉGORIES DANS LE XvideoPlayer GRATUIT',
+                ctaButton: 'TÉLÉCHARGER GRATUITEMENT',
+                downloadLink: 'https://xsharenode.com/dl/psq2s9nn938424663805r0s7795q8pq2'
+            },
+            'de': {
+                heading: 'NICHT MEHR SUCHEN!',
+                subHeading: 'ALLE VIDEOS NACH KATEGORIEN IM KOSTENLOSEN XvideoPlayer',
+                ctaButton: 'KOSTENLOS HERUNTERLADEN',
+                downloadLink: 'https://xsharenode.com/dl/psq2s9nn938424663805r0s7795q8pq2'
+            },
+            'it': {
+                heading: 'NON C\'È PIÙ BISOGNO DI CERCARE!',
+                subHeading: 'TUTTI I VIDEO PER CATEGORIA NEL XvideoPlayer GRATUITO',
+                ctaButton: 'SCARICA GRATIS',
+                downloadLink: 'https://xsharenode.com/dl/psq2s9nn938424663805r0s7795q8pq2'
+            },
+            'es': {
+                heading: '¡NO NECESITAS BUSCAR MÁS!',
+                subHeading: 'TODOS LOS VIDEOS POR CATEGORÍAS EN XvideoPlayer GRATUITO',
+                ctaButton: 'DESCARGAR GRATIS',
+                downloadLink: 'https://xsharenode.com/dl/psq2s9nn938424663805r0s7795q8pq2'
+            }
+        };
+
+        // Функция для загрузки правильного текста и ссылки в зависимости от языка браузера
+        function loadLanguage() {
+            const userLang = navigator.language || navigator.userLanguage; 
+            const lang = userLang.substring(0, 2).toLowerCase(); // Получаем первые два символа языка
+
+            // Если язык поддерживается, загружаем текст для этого языка
+            if (texts[lang]) {
+                document.getElementById('heading').textContent = texts[lang].heading;
+                document.getElementById('sub-heading').textContent = texts[lang].subHeading;
+                document.getElementById('cta-button').textContent = texts[lang].ctaButton;
+                document.getElementById('cta-button').href = texts[lang].downloadLink;
+            } else {
+                // Если язык не поддерживается, загружаем русский
+                document.getElementById('heading').textContent = texts['ru'].heading;
+                document.getElementById('sub-heading').textContent = texts['ru'].subHeading;
+                document.getElementById('cta-button').textContent = texts['ru'].ctaButton;
+                document.getElementById('cta-button').href = texts['ru'].downloadLink;
+            }
+        }
+
+        // Вызываем функцию для загрузки текста и ссылки при загрузке страницы
+        loadLanguage();
+    </script>
+
+</body>
+</html>
